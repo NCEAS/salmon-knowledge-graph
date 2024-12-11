@@ -1,0 +1,439 @@
+@prefix : <https://knb.ecoinformatics.org/knb/streamnet/sar/lod/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix sar-out: <https://knb.ecoinformatics.org/knb/streamnet/sar/lod/ontology/> .
+@prefix fish-ont: <http://purl.dataone.org/odo/fish-ont/> .
+@prefix oboe-core: <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#> .
+@prefix streamnet-ont: <https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/> .
+@base <https://knb.ecoinformatics.org/knb/streamnet/sar/lod/ontology/> .
+
+<https://knb.ecoinformatics.org/knb/streamnet/sar/lod/ontology/> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.dataone.org/odo/fish-ont/associatedPopulation
+fish-ont:associatedPopulation rdf:type owl:ObjectProperty ;
+                              rdfs:label "associated population" .
+
+
+###  http://purl.dataone.org/odo/fish-ont/associatedRegion
+fish-ont:associatedRegion rdf:type owl:ObjectProperty ;
+                          rdfs:label "associated region" .
+
+
+###  http://purl.dataone.org/odo/fish-ont/hasTemporalContext
+fish-ont:hasTemporalContext rdf:type owl:ObjectProperty ;
+                            rdfs:label "has temporal context" .
+
+
+###  http://purl.dataone.org/odo/fish-ont/locatedIn
+fish-ont:locatedIn rdf:type owl:ObjectProperty ;
+                   rdfs:label "located in" .
+
+
+###  http://purl.dataone.org/odo/fish-ont/ofSpeciesType
+fish-ont:ofSpeciesType rdf:type owl:ObjectProperty ;
+                       rdfs:label "of species type" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/fallsUnderRegion
+streamnet-ont:fallsUnderRegion rdf:type owl:ObjectProperty ;
+                               rdfs:label "falls under region" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/sar/lod/ontology/outMigrationYear
+sar-out:outMigrationYear rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf fish-ont:hasTemporalContext ;
+                         rdfs:label "out migration year" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/commonPopulationName
+streamnet-ont:commonPopulationName rdf:type owl:DatatypeProperty ;
+                                   rdfs:comment "Population name used by local biologists." ;
+                                   rdfs:label "common population name" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/escapementName
+streamnet-ont:escapementName rdf:type owl:DatatypeProperty ;
+                             rdfs:label "escapement name" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/escapementTiming
+streamnet-ont:escapementTiming rdf:type owl:DatatypeProperty ;
+                               rdfs:comment "Specific time period (months) for an escapement estimate." ;
+                               rdfs:label "escapement timing" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/esu_dps
+streamnet-ont:esu_dps rdf:type owl:DatatypeProperty ;
+                      rdfs:comment "For ESA-listed populations , the Evolutionarily Significant Unit / Distinct Population Segment defined by NMFS / USFWS.  For non-listed populations this is the DPS or other name." ;
+                      rdfs:label "esu dps" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/locationName
+streamnet-ont:locationName rdf:type owl:DatatypeProperty ;
+                           rdfs:comment "Location part of ESApopName." ;
+                           rdfs:label "location name" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/methodID
+streamnet-ont:methodID rdf:type owl:DatatypeProperty ;
+                       rdfs:comment "When an organization provides > 1 estimate per year, this number identifies which method was used." ;
+                       rdfs:label "method number" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/methodName
+streamnet-ont:methodName rdf:type owl:DatatypeProperty ;
+                         rdfs:comment "Name(s) of protocols, data collection, and data analysis methods used to calculate the indicator estimate." ;
+                         rdfs:label "protocol method name" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/methodSource_URL
+streamnet-ont:methodSource_URL rdf:type owl:DatatypeProperty ;
+                               rdfs:comment "Links to protocols and methods describing the methodology and documenting the derivation of the indicator." ;
+                               rdfs:label "method URL" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/nmfs_majorPopulationGroup
+streamnet-ont:nmfs_majorPopulationGroup rdf:type owl:DatatypeProperty ;
+                                        rdfs:comment "\"Major population group\" or “stratum” (defined by NMFS), in which the population falls." ;
+                                        rdfs:label "nmfs population group" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/nmfs_populationID
+streamnet-ont:nmfs_populationID rdf:type owl:DatatypeProperty ;
+                                rdfs:comment "NMFS code for the population of fish." ;
+                                rdfs:label "nmfs population code" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/nmfs_populationName
+streamnet-ont:nmfs_populationName rdf:type owl:DatatypeProperty ;
+                                  rdfs:comment "Population name used by NMFS." ;
+                                  rdfs:label "nmfs population name" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/populationFitNotes
+streamnet-ont:populationFitNotes rdf:type owl:DatatypeProperty ;
+                                 rdfs:comment "Text description of why the data are not at the scale of a single population." ;
+                                 rdfs:label "population fit notes" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/streamnet_populationID
+streamnet-ont:streamnet_populationID rdf:type owl:DatatypeProperty ;
+                                     rdfs:comment "StreamNet code for the population of fish." ;
+                                     rdfs:label "streamnet population ID" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/streamnet_populationName
+streamnet-ont:streamnet_populationName rdf:type owl:DatatypeProperty ;
+                                       rdfs:comment "Population name used by StreamNet." ;
+                                       rdfs:label "streamnet population name" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/sar/lod/ontology/sarType
+sar-out:sarType rdf:type owl:DatatypeProperty ;
+                rdfs:comment "What fish are included in the estimate of total returns." ;
+                rdfs:label "sar type" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/sar/lod/ontology/scopeOfInference
+sar-out:scopeOfInference rdf:type owl:DatatypeProperty ;
+                         rdfs:comment "Description of what this SAR represents:  the specific population(s); specific ESU/DPS(s); specific MPG(s); etc. represented." ;
+                         rdfs:label "scope of inference" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/sar/lod/ontology/smoltDefinition
+sar-out:smoltDefinition rdf:type owl:DatatypeProperty ;
+                        rdfs:comment "Concatenated smolt and adult locations." ;
+                        rdfs:label "smolt to adult locs" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic
+oboe-core:Characteristic rdf:type owl:Class .
+
+
+###  http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity
+oboe-core:Entity rdf:type owl:Class .
+
+
+###  http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement
+oboe-core:Measurement rdf:type owl:Class .
+
+
+###  http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation
+oboe-core:Observation rdf:type owl:Class .
+
+
+###  http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection
+oboe-core:ObservationCollection rdf:type owl:Class .
+
+
+###  http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Protocol
+oboe-core:Protocol rdf:type owl:Class .
+
+
+###  http://purl.dataone.org/odo/fish-ont/FishPopulation
+fish-ont:FishPopulation rdf:type owl:Class .
+
+
+###  http://www.opengis.net/ont/geosparql#Feature
+<http://www.opengis.net/ont/geosparql#Feature> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/FeatureOfInterest
+sosa:FeatureOfInterest rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/ObservableProperty
+sosa:ObservableProperty rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Observation
+sosa:Observation rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/ObservationCollection
+sosa:ObservationCollection rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Procedure
+sosa:Procedure rdf:type owl:Class .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/AdultLocation
+streamnet-ont:AdultLocation rdf:type owl:Class ;
+                            rdfs:subClassOf oboe-core:Entity ,
+                                            <http://www.opengis.net/ont/geosparql#Feature> ,
+                                            sosa:FeatureOfInterest ;
+                            rdfs:comment "The specific named location(s) where the adult abundance numbers were determined." ;
+                            rdfs:label "Adult Location (Streamnet)" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/EstimationProtocol
+streamnet-ont:EstimationProtocol rdf:type owl:Class ;
+                                 rdfs:subClassOf oboe-core:Protocol ,
+                                                 sosa:Procedure ;
+                                 rdfs:label "Estimation Protocol (Streamnet)" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/RecoveryDomain
+streamnet-ont:RecoveryDomain rdf:type owl:Class ;
+                             rdfs:subClassOf <http://www.opengis.net/ont/geosparql#Feature> ;
+                             rdfs:label "Recovery Domain" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/RunType
+streamnet-ont:RunType rdf:type owl:Class ;
+                      rdfs:label "Run Type (Streamnet)" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/SalmonMeasurementCharacteristic
+streamnet-ont:SalmonMeasurementCharacteristic rdf:type owl:Class ;
+                                              rdfs:subClassOf oboe-core:Characteristic ,
+                                                              sosa:ObservableProperty ;
+                                              rdfs:label "Salmon Measurement Characteristic (Streamnet)" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/SmoltLocation
+streamnet-ont:SmoltLocation rdf:type owl:Class ;
+                            rdfs:subClassOf oboe-core:Entity ,
+                                            <http://www.opengis.net/ont/geosparql#Feature> ,
+                                            sosa:FeatureOfInterest ;
+                            rdfs:comment "The specific named location(s) where the smolt abundance numbers were determined." ;
+                            rdfs:label "Smolt Location (Streamnet)" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/sar/lod/ontology/Escapement_Measurement
+sar-out:Escapement_Measurement rdf:type owl:Class ;
+                               rdfs:subClassOf oboe-core:Measurement ;
+                               rdfs:label "Escapement Measurement (SAR)" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/sar/lod/ontology/Escapement_Observation
+sar-out:Escapement_Observation rdf:type owl:Class ;
+                               rdfs:subClassOf oboe-core:Observation ,
+                                               sosa:Observation ;
+                               rdfs:label "Escapement Observation (SAR)" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/sar/lod/ontology/Escapement_ObservationCollection
+sar-out:Escapement_ObservationCollection rdf:type owl:Class ;
+                                         rdfs:subClassOf oboe-core:ObservationCollection ,
+                                                         sosa:ObservationCollection ;
+                                         rdfs:label "Escapement Observation Collection (SAR)" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/sar/lod/ontology/SalmonMeasurementCharacteristic
+sar-out:SalmonMeasurementCharacteristic rdf:type owl:Class ;
+                                        rdfs:subClassOf streamnet-ont:SalmonMeasurementCharacteristic ;
+                                        rdfs:label "Salmon Measurement Characteristic (SAR)" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/sar/lod/ontology/SalmonPopulation
+sar-out:SalmonPopulation rdf:type owl:Class ;
+                         rdfs:subClassOf fish-ont:FishPopulation ;
+                         rdfs:label "Salmon Population (SAR)" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/runType.Early
+streamnet-ont:runType.Early rdf:type owl:NamedIndividual ,
+                                     streamnet-ont:RunType ;
+                            rdfs:label "Early" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/runType.Early-Late
+streamnet-ont:runType.Early-Late rdf:type owl:NamedIndividual ,
+                                          streamnet-ont:RunType ;
+                                 rdfs:label "Both early & late" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/runType.Fall
+streamnet-ont:runType.Fall rdf:type owl:NamedIndividual ,
+                                    streamnet-ont:RunType ;
+                           rdfs:label "Fall" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/runType.Late
+streamnet-ont:runType.Late rdf:type owl:NamedIndividual ,
+                                    streamnet-ont:RunType ;
+                           rdfs:label "Late" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/runType.LateFall
+streamnet-ont:runType.LateFall rdf:type owl:NamedIndividual ,
+                                        streamnet-ont:RunType ;
+                               rdfs:label "Late Fall" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/runType.Spring
+streamnet-ont:runType.Spring rdf:type owl:NamedIndividual ,
+                                      streamnet-ont:RunType ;
+                             rdfs:label "Spring" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/runType.Spring-Summer
+streamnet-ont:runType.Spring-Summer rdf:type owl:NamedIndividual ,
+                                             streamnet-ont:RunType ;
+                                    rdfs:label "Spring summer" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/runType.Summer
+streamnet-ont:runType.Summer rdf:type owl:NamedIndividual ,
+                                      streamnet-ont:RunType ;
+                             rdfs:label "Summer" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/runType.Summer-Winter
+streamnet-ont:runType.Summer-Winter rdf:type owl:NamedIndividual ,
+                                             streamnet-ont:RunType ;
+                                    rdfs:label "Both summer & winter" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/runType.Unknown
+streamnet-ont:runType.Unknown rdf:type owl:NamedIndividual ,
+                                       streamnet-ont:RunType ;
+                              rdfs:label "Unknown" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/lod/ontology/runType.Winter
+streamnet-ont:runType.Winter rdf:type owl:NamedIndividual ,
+                                      streamnet-ont:RunType ;
+                             rdfs:label "Winter" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/sar/lod/ontology/salmonCharacteristic.BROODSTOCKREMOVED
+sar-out:salmonCharacteristic.BROODSTOCKREMOVED rdf:type owl:NamedIndividual ,
+                                                        sar-out:SalmonMeasurementCharacteristic ;
+                                               rdfs:comment "Number of additional fish that would have returned had there not been removal of fish for use as broodstock in a hatchery." ;
+                                               rdfs:label "BroodStockRemoved" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/sar/lod/ontology/salmonCharacteristic.HARVESTADJ
+sar-out:salmonCharacteristic.HARVESTADJ rdf:type owl:NamedIndividual ,
+                                                 sar-out:SalmonMeasurementCharacteristic ;
+                                        rdfs:comment "How the return was adjusted to account for harvest.  (Which harvested fish are included in the estimate of number of adults.)" ;
+                                        rdfs:label "HarvestAdj" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/sar/lod/ontology/salmonCharacteristic.MAINSTEMHARVEST
+sar-out:salmonCharacteristic.MAINSTEMHARVEST rdf:type owl:NamedIndividual ,
+                                                      sar-out:SalmonMeasurementCharacteristic ;
+                                             rdfs:comment "Number of fish from the smolt group indicated in the TSO field that were harvested in the estuary and mainstem rivers." ;
+                                             rdfs:label "MainstemHarvest" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/sar/lod/ontology/salmonCharacteristic.OCEANHARVEST
+sar-out:salmonCharacteristic.OCEANHARVEST rdf:type owl:NamedIndividual ,
+                                                   sar-out:SalmonMeasurementCharacteristic ;
+                                          rdfs:comment "Estimated number of fish from the indicated smolt group that were harvested in the ocean." ;
+                                          rdfs:label "OceanHarvest" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/sar/lod/ontology/salmonCharacteristic.REARINGTYPE
+sar-out:salmonCharacteristic.REARINGTYPE rdf:type owl:NamedIndividual ,
+                                                  sar-out:SalmonMeasurementCharacteristic ;
+                                         rdfs:comment "The rearing type (origin; production type) of the fish represented by this record." ;
+                                         rdfs:label "RearingType" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/sar/lod/ontology/salmonCharacteristic.RETURNDEF
+sar-out:salmonCharacteristic.RETURNDEF rdf:type owl:NamedIndividual ,
+                                                sar-out:SalmonMeasurementCharacteristic ;
+                                       rdfs:comment "How \"return\" is defined for this SAR estimate." ;
+                                       rdfs:label "ReturnDef" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/sar/lod/ontology/salmonCharacteristic.RETURNSMISSING
+sar-out:salmonCharacteristic.RETURNSMISSING rdf:type owl:NamedIndividual ,
+                                                     sar-out:SalmonMeasurementCharacteristic ;
+                                            rdfs:comment "Whether any adult return years for this out-migration year were missing." ;
+                                            rdfs:label "ReturnsMissing" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/sar/lod/ontology/salmonCharacteristic.SAR
+sar-out:salmonCharacteristic.SAR rdf:type owl:NamedIndividual ,
+                                          sar-out:SalmonMeasurementCharacteristic ;
+                                 rdfs:comment "Point estimate for smolt-to-adult return rate (percent)." ;
+                                 rdfs:label "SAR" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/sar/lod/ontology/salmonCharacteristic.TAR
+sar-out:salmonCharacteristic.TAR rdf:type owl:NamedIndividual ,
+                                          sar-out:SalmonMeasurementCharacteristic ;
+                                 rdfs:comment "Total adult return.  Number of adults returning for the first time from the indicated outmigration year, or the group of marked smolts (as appropriate), to match the outmigrants in the TSO field." ;
+                                 rdfs:label "TAR" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/sar/lod/ontology/salmonCharacteristic.TRIBHARVEST
+sar-out:salmonCharacteristic.TRIBHARVEST rdf:type owl:NamedIndividual ,
+                                                  sar-out:SalmonMeasurementCharacteristic ;
+                                         rdfs:comment "Number of fish from the smolt group indicated in the TSO field that were harvested in tributaries." ;
+                                         rdfs:label "TribHarvest" .
+
+
+###  https://knb.ecoinformatics.org/knb/streamnet/sar/lod/ontology/salmonCharacteristic.TSO
+sar-out:salmonCharacteristic.TSO rdf:type owl:NamedIndividual ,
+                                          sar-out:SalmonMeasurementCharacteristic ;
+                                 rdfs:comment "Total smolt outmigration.  Number of smolts for this outmigration year, or the number of marked smolts used to calculate the SAR." ;
+                                 rdfs:label "TSO" .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

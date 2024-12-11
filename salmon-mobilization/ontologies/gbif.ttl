@@ -1,0 +1,175 @@
+@prefix : <https://knb.ecoinformatics.org/knb/gbif/lod/ontology/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix odo: <http://purl.dataone.org/odo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix gbif: <https://knb.ecoinformatics.org/knb/gbif/lod/ontology/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix fish-ont: <http://purl.dataone.org/fish-ont/> .
+@prefix oboe-core: <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#> .
+@prefix salmon-ont: <http://purl.dataone.org/salmon-ont/> .
+@base <https://knb.ecoinformatics.org/knb/gbif/lod/ontology/> .
+
+<https://knb.ecoinformatics.org/knb/gbif/lod/ontology/> rdf:type owl:Ontology .
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://knb.ecoinformatics.org/knb/gbif/lod/ontology/gbif_ID
+gbif:gbif_ID rdf:type owl:DatatypeProperty ;
+             rdfs:label "GBIF identifier" .
+
+
+###  https://knb.ecoinformatics.org/knb/gbif/lod/ontology/occurrenceID
+gbif:occurrenceID rdf:type owl:DatatypeProperty ;
+                  rdfs:label "occurrence identifier" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic
+oboe-core:Characteristic rdf:type owl:Class .
+
+
+###  http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity
+oboe-core:Entity rdf:type owl:Class .
+
+
+###  http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement
+oboe-core:Measurement rdf:type owl:Class .
+
+
+###  http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation
+oboe-core:Observation rdf:type owl:Class .
+
+
+###  http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection
+oboe-core:ObservationCollection rdf:type owl:Class .
+
+
+###  http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Protocol
+oboe-core:Protocol rdf:type owl:Class .
+
+
+###  http://www.opengis.net/ont/geosparql#Feature
+geo:Feature rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/FeatureOfInterest
+sosa:FeatureOfInterest rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/ObservableProperty
+sosa:ObservableProperty rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Observation
+sosa:Observation rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/ObservationCollection
+sosa:ObservationCollection rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Procedure
+sosa:Procedure rdf:type owl:Class .
+
+
+###  https://knb.ecoinformatics.org/knb/gbif/lod/ontology/Measurement
+gbif:Measurement rdf:type owl:Class ;
+                 rdfs:subClassOf oboe-core:Measurement ;
+                 rdfs:label "Measurement (GBIF)" .
+
+
+###  https://knb.ecoinformatics.org/knb/gbif/lod/ontology/Observation
+gbif:Observation rdf:type owl:Class ;
+                 rdfs:subClassOf oboe-core:Observation ,
+                                 sosa:Observation ;
+                 rdfs:label "Observation (GBIF)" .
+
+
+###  https://knb.ecoinformatics.org/knb/gbif/lod/ontology/ObservationCollection
+gbif:ObservationCollection rdf:type owl:Class ;
+                           rdfs:subClassOf oboe-core:ObservationCollection ,
+                                           sosa:ObservationCollection ;
+                           rdfs:label "Observation Collection (GBIF)" .
+
+
+###  https://knb.ecoinformatics.org/knb/gbif/lod/ontology/ObservationPoint
+gbif:ObservationPoint rdf:type owl:Class ;
+                      rdfs:subClassOf oboe-core:Entity ,
+                                      geo:Feature ,
+                                      sosa:FeatureOfInterest ;
+                      rdfs:comment "Observation points in the GBIF (Global Biodiversity Information Facility) datasets for monitoring of salmon migration." ;
+                      rdfs:label "Observation Point (GBIF)" .
+
+
+###  https://knb.ecoinformatics.org/knb/gbif/lod/ontology/River
+gbif:River rdf:type owl:Class ;
+           rdfs:subClassOf oboe-core:Entity ,
+                           geo:Feature ,
+                           sosa:FeatureOfInterest ;
+           rdfs:label "River" .
+
+
+###  https://knb.ecoinformatics.org/knb/gbif/lod/ontology/SalmonMeasurementCharacteristic
+gbif:SalmonMeasurementCharacteristic rdf:type owl:Class ;
+                                     rdfs:subClassOf oboe-core:Characteristic ,
+                                                     sosa:ObservableProperty ;
+                                     rdfs:label "Salmon Measurement Characteristic (GBIF)" .
+
+
+###  https://knb.ecoinformatics.org/knb/gbif/lod/ontology/SalmonSamplingProtocol
+gbif:SalmonSamplingProtocol rdf:type owl:Class ;
+                            rdfs:subClassOf oboe-core:Protocol ,
+                                            sosa:Procedure ;
+                            rdfs:label "Salmon Sampling Protocol (GBIF)" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://knb.ecoinformatics.org/knb/gbif/lod/ontology/salmonAbundance.OCCURRENCE
+gbif:salmonAbundance.OCCURRENCE rdf:type owl:NamedIndividual ,
+                                         gbif:SalmonMeasurementCharacteristic ;
+                                rdfs:label "abundance measure of salmon" .
+
+
+###  https://knb.ecoinformatics.org/knb/gbif/lod/ontology/samplingProtocol.SAI
+gbif:samplingProtocol.SAI rdf:type owl:NamedIndividual ,
+                                   gbif:SalmonSamplingProtocol ;
+                          rdfs:comment """Sampling
+- In the Bresle, sampling is conducted at 8 sites spread along the mainstem in the area of the hydrographic network colonized by Atlantic salmon. The sites are visited in 3 years, 2 in the first year, 4 in the second and 2 in the third year.
+
+Method steps
+- Age is verified from scale reading according to standard methods described by (Baglinière and Le Louarn, 1987) and (Richard and Bagliniere, 1990).
+Fish capture was carried out with a backpack electrofishing equipment. The same gear was used since the beginning of the data collection, namely a Martin Pêcheur from DREAM Electronique, It is tuned to produce a pulsed DC with a 400 Hz frequency, 250-300 volts and a square-waveform between 4 and 10% duty cycle. Fishing is operated according to the following steps : 
+1. Two large dip-nets with metal frames are placed facing the current, lying on the bottom, and kept at a fixed position. 
+2. The anode scans an area of about 4-5 m upstream of the dip-nets in the vein of water filtered by them. 
+3. Fish attracted by the anode and shocked go down into the nets guided by the electrode and driven by the water flow. If necessary, the fish stuck on the bottom or in aquatic vegetation are recovered by a small hand net. 
+4. Individuals are transferred into a bucket previously filled with water. 
+5. The whole team moves laterally several meters out of the area that has just been disturbed by the electric field, the carrier of the electrofishing gear taking care of not to step on the area he will next explore with the anode. When a bank is reached, the progression is a few meters upstream. Then steps 1-5 are repeatedThe sampling at a given site stops after 5 minutes of actual fishing – i.e. the duration when the electric field is applied in the water - measured directly on the counter of the electric fishing equipment. Juvenile abundance is quantified by the number of individuals captured for a unit effort (5 minutes of fishing under the conditions specified above). Biometric measurement of the fish are recorded after their anesthesia with benzocaïne. The fish length is measured from the tip of the mouth to the fork of the caudal fin (1 millimeter precision). Fish are then weighed (0.2 g precision) and maturity status is assessed by a gentle pressure on the belly that allows to get sperm in mature males. All the fish sampled are then released in their original site.""" ;
+                          rdfs:label "salmon abundance indices" .
+
+
+###  https://knb.ecoinformatics.org/knb/gbif/lod/ontology/samplingProtocol.Trapping
+gbif:samplingProtocol.Trapping rdf:type owl:NamedIndividual ,
+                                        gbif:SalmonSamplingProtocol ;
+                               rdfs:comment """Sampling
+- Trapping of smolts is conducted by means of filtering grids guiding the fish towards a waiting tank. Spawners are captured after swimming up a fish ramp where they trap themselves. For both stages, fish a measured and weighted individually, genetic and scale samples are taken on a subset of the captures, which are also tagged with individual PIT-tags.
+
+Method steps
+- Salmon smolts and spawners have been monitored respectively since 1982 and 1984 on the Bresle. The traps, which are located, at a distance of 3 km from the estuary (upstream - spawners) and 15 km (downstream – smolts), are checked and cleaned twice a day throughout the period of activity, ranging from December to may for smolts and march to December for spawners.
+- Age is verified from scale reading according to standard methods described by (Baglinière and Le Louarn, 1987) and (Richard and Bagliniere, 1990).""" ;
+                               rdfs:label "sampled by trapping" .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
